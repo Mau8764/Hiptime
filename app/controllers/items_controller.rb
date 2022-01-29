@@ -2,14 +2,15 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [:edit, :update, :show, :destroy]
 
   def index
-    @items = Item.all.order(:created_at)
+    if current_user
+      @items = Item.where(:user_id => current_user.id).order(:created_at)
+    end
   end
 
   def show
   end
 
   def new
-    binding.pry
     @item = current_user.items.build
   end
 
