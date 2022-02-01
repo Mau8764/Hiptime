@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
 
   def complete
     @item = Item.find(params[:id])
-    @item.update(completed_ad: Time.now)
+    @item.update(completed_at: Time.now)
     
     render "index"
   end
