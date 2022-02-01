@@ -27,8 +27,9 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
+    flash[:notice] = "Item has been deleted" 
 
-    render "index"
+    redirect_to root_path, status: :see_other
   end
 
   def create
@@ -42,8 +43,9 @@ class ItemsController < ApplicationController
 
   def complete
     @item = Item.find(params[:id])
-    @item.update(:complete_at, Time.now)
-    redirect_to root_path
+    @item.update(completed_ad: Time.now)
+    
+    render "index"
   end
 
   private

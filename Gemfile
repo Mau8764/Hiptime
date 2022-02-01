@@ -45,6 +45,7 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'simple_form'
 gem 'pry-byebug'
 gem 'devise', '~> 4.2'
+gem "font-awesome-rails"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
